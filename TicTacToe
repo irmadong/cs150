@@ -1,14 +1,21 @@
+
+
+
+
+
+
 public class TicTacToe{
    public static final char SPACE = ' ';
    private static final int SIZE = 3;
    private static final int NUM_POSSIBLE_MOVES = SIZE * SIZE;
    private char board[][];
-   
+   private static int numMove;
    public TicTacToe(){
        board = new char[SIZE][SIZE];
       for(int row=0; row<board.length; row++){
          for(int col=0; col<board[row].length; col++){
             board[row][col] = SPACE;
+            toString();
          }
       }
       
@@ -16,6 +23,7 @@ public class TicTacToe{
    public boolean makeMove(int row, int col, char playerSymbol){
       if(row<3 && col<3 && board[row][col]==SPACE){
          board[row][col]= playerSymbol;
+         numMove++;
          return true;
       }
       return false;
@@ -49,19 +57,17 @@ public class TicTacToe{
    }
    
    public boolean isDraw(){
-      for(int row=0;row<board.length;row++){
-         for(int col=0;col<board[row].length;col++){
-            if(board[col][row]==SPACE)
-               return false;
+      if(numMove==NUM_POSSIBLE_MOVES){
+               return true;
          }
-      }
-      return true;
+      
+      return false;
    }
    
    public String toString(){
       String str = "-------\n";
       
-      for(int row=0; row<board.length;row++){
+      for(int row=0; row<SIZE;row++){
          for (int col=0; col<board[row].length;col++){
             str+="|"+board[row][col];
             
@@ -71,19 +77,7 @@ public class TicTacToe{
       return str;
    }
 
-public static void main(String args[]){
-      TicTacToe game = new TicTacToe();
-      game.makeMove(1,1,'O');
-      game.makeMove(0,1,'O');
-      game.makeMove(2,1,'O');
-      
-      
-      System.out.print(game.toString());
-      System.out.print(game.winner());
-   
-        
-      
-   }
+
 
 
 
