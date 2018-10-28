@@ -1,26 +1,34 @@
-
 public class Player{
    private TicTacToe gameBoard;
    private char symbol;
-      public Player(TicTacToe gameBoard, char symbol){
-      gameBoard = this.gameBoard;
-      symbol = this.symbol;
-      }
+   public Player(TicTacToe gameBoard, char symbol){
+      this.gameBoard = gameBoard;
+      this.symbol = symbol;
+   }
    public void play(){
-      int row
+      int row;
+      int col;
       do{
-      String contents = StdIn.readLine(); 
-      System.out.println("Player"+symbol+ "'s turn.");
-      int row = Integer.parseInt(contents);
-      System.out.println("Enter row (0-2):"+row);
-      int col = Integer.parseInt(contents);
-      System.out.println("Enter column (0-2):"+col);
-      
+         
+         System.out.println("Player "+ symbol + " 's turn.");
+         
+         
+         System.out.println("Enter row (0-2):");
+         String contents = StdIn.readLine();
+         row = Integer.parseInt(contents);
+        
+         System.out.println("Enter column (0-2):");
+          String contents1 = StdIn.readLine();
+          col = Integer.parseInt(contents1);
        
-      }while(gameBoard.makeMove(row,col,symbol)==false);
+      }
+      while(gameBoard.makeMove(row,col,symbol)==false);
+      
+      gameBoard.makeMove(row,col,symbol);
     
       
       
-   
    }
-      
+   
+}
+
