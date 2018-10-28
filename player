@@ -1,22 +1,26 @@
+
 public class Player{
-   private TicTacToe gameBoard；
-   private char symbol；
-      public Player(TicTacToe board, char sym){
-      gameBoard = board;
-      symbol = sym;
+   private TicTacToe gameBoard;
+   private char symbol;
+      public Player(TicTacToe gameBoard, char symbol){
+      gameBoard = this.gameBoard;
+      symbol = this.symbol;
       }
    public void play(){
+      int row
+      do{
       String contents = StdIn.readLine(); 
-      System.out.println("Player O's turn.");
+      System.out.println("Player"+symbol+ "'s turn.");
       int row = Integer.parseInt(contents);
       System.out.println("Enter row (0-2):"+row);
-      int col = Integer.parseInt(contents)
-         System.out.println("Enter column (0-2):"+col);
+      int col = Integer.parseInt(contents);
+      System.out.println("Enter column (0-2):"+col);
       
        
-     if (int row == null&& int col == null){
-      gameBoard.makeMove(row,col,symbol);
+      }while(gameBoard.makeMove(row,col,symbol)==false);
+    
       
-      }
+      
+   
    }
       
